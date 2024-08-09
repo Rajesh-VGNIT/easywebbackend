@@ -114,15 +114,16 @@
 // });
 
 // new connection db
- 
+require('dotenv').config()
 const express = require("express");
-const config = require("./db/config");
+// const config = require("./db/config");
 const User = require("./db/User");
 
 const path = require("path");
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 const cors = require("cors");
 const mongoose = require('./db/config')
+// const mongoose = require('mongoose')
 
 const Jwt = require('jsonwebtoken');
 const jwtKey = 'e-comm';
@@ -178,6 +179,6 @@ app.post("/login", async (req, resp) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`listening to the port at ${port}`);
+app.listen(PORT, () => {
+  console.log(`listening to the port at ${PORT}`);
 });
